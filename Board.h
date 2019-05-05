@@ -7,7 +7,7 @@
 
 struct Field
 {
-	bool is_wall = true;
+	bool is_wall = false;
 	bool is_snake = false;
 	bool is_snake_head = false;
 	bool is_hen = false;
@@ -25,13 +25,13 @@ public:
 		{
 			for (int j = 0; j < BOARD_SIZE; ++j)
 			{
-				if (game_board[i][j].is_wall)
+				if (field[i][j].is_wall)
 					std::cout << "$";
-				else if (game_board[i][j].is_hen)
+				else if (field[i][j].is_hen)
 					std::cout << "&";
-				else if (game_board[i][j].is_snake)
+				else if (field[i][j].is_snake)
 					std::cout << "o";
-				else if (game_board[i][j].is_snake_head)
+				else if (field[i][j].is_snake_head)
 					std::cout << "#";
 				else
 					std::cout << " ";
@@ -42,7 +42,7 @@ public:
 
 private:
 
-	Field game_board[BOARD_SIZE][BOARD_SIZE];
+	Field field[BOARD_SIZE][BOARD_SIZE];
 
 };
 
